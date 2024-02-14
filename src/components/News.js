@@ -371,19 +371,12 @@ export class News extends PureComponent {
         <div className='container my-3'>
           <h2>Top Headlines</h2>
           <div className='row'>
-            <div className='col-md-4'>
-              <NewsItem title="myTitle" description="mydes" ImageUrl="">
+            {this.state.articles.map((element)=>{
+              return <div className='col-md-4' key={element.url}>
+              <NewsItem title={element.title.slice(0, 45)} description={element.description.slice(0, 88)} ImageUrl={element.urlToImage} NewsUrl={element.url}>
               </NewsItem>
             </div>
-            <div className='col-md-4'>
-              <NewsItem title="myTitle" description="mydes" ImageUrl="">
-              </NewsItem>
-            </div>
-            <div className='col-md-4'>
-              <NewsItem title="myTitle" description="mydes" ImageUrl="">
-              </NewsItem>
-            </div>
-            
+            })}
           </div>
         </div>
         
